@@ -32,27 +32,19 @@ class InstanceCPUMapingManager(base.ManagerWithFind):
         }
         return self._create(url, data=data)
 
-    def delete(self, flavor):
-        url = '/flavors/%s' % base.getid(flavor)
+    def delete(self, instance_uuid):
+        url = '/instance_cpu_mappings/%s' % base.getid(instance_uuid)
         return self._delete(url)
 
-    def get(self, flavor):
-        url = '/flavors/%s' % base.getid(flavor)
+    def get(self, instance_uuid):
+        url = '/instance_cpu_mappings/%s' % base.getid(instance_uuid)
         return self._get(url)
 
     def list(self):
         url = '/instance_cpu_mappings'
         return self._list(url, response_key='mappings')
 
-    def update(self, flavor, data):
-        url = '/flavors/%s' % base.getid(flavor)
+    def update(self, instance_uuid, data):
+        url = '/instance_cpu_mappings/%s' % base.getid(instance_uuid)
         return self._update(url, data)
 
-    def add_tenant_access(self, flavor, project):
-        url = '/flavors/%s/access' % base.getid(flavor)
-        return self._create(url, data={'tenant_id': project})
-
-    def remove_tenant_access(self, flavor, project):
-        url = '/flavors/%(id)s/access/%(project)s' % {
-            'id': base.getid(flavor), 'project': project}
-        return self._delete(url)

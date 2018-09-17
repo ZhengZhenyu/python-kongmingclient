@@ -99,7 +99,7 @@ class DeleteInstanceCPUMappings(command.Command):
                           {'uuid': one_mapping, 'e': e})
 
         if result > 0:
-            total = len(parsed_args.flavor)
+            total = len(parsed_args.instance_uuid)
             msg = (_("%(result)s of %(total)s mapping failed "
                      "to delete.") % {'result': result, 'total': total})
             raise exceptions.CommandError(msg)
