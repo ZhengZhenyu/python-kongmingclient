@@ -24,5 +24,5 @@ class Client(object):
         """Initialize a new client for the KongMing v1 API."""
         self.http_client = http._construct_http_client(*args, **kwargs)
 
-        self.flavor = instance_cpu_mappings.InstanceCPUMapingManager(
-            self.http_client)
+        self.instance_cpu_mappings = \
+            instance_cpu_mappings.InstanceCPUMapingManager(self.http_client)
