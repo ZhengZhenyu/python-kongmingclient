@@ -42,7 +42,7 @@ class InstanceCPUMapingManager(base.ManagerWithFind):
 
     def list(self):
         url = '/instance_cpu_mappings'
-        return self._list(url, response_key='instance_cpu_mappings')
+        return self._list(url, response_key='mappings')
 
     def update(self, flavor, data):
         url = '/flavors/%s' % base.getid(flavor)
