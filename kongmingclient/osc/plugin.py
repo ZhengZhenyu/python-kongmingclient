@@ -22,7 +22,7 @@ from kongmingclient.common.i18n import _
 LOG = logging.getLogger(__name__)
 
 DEFAULT_RESOURCE_PIN_API_VERSION = '1'
-API_VERSION_OPTION = 'os_kongming_api_version'
+API_VERSION_OPTION = 'os_resource_pin_api_version'
 API_NAME = 'resource_pin'
 API_VERSIONS = {
     '1': 'kongmingclient.v1.client.Client',
