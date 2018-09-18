@@ -333,7 +333,8 @@ class SessionClient(adapter.LegacyJsonAdapter):
 
 def _construct_http_client(endpoint=None, username=None, password=None,
                            include_pass=None, endpoint_type=None,
-                           auth_url=None, **kwargs):
+                           auth_url=None, service_type='resource_pin',
+                           **kwargs):
     session = kwargs.pop('session', None)
     auth = kwargs.pop('auth', None)
 
@@ -344,4 +345,4 @@ def _construct_http_client(endpoint=None, username=None, password=None,
         return HTTPClient(endpoint=endpoint, username=username,
                           password=password, include_pass=include_pass,
                           endpoint_type=endpoint_type, auth_url=auth_url,
-                          **kwargs)
+                          service_type=service_type, **kwargs)
