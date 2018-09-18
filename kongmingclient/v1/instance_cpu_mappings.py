@@ -23,13 +23,18 @@ class InstanceCPUMapping(base.Resource):
 class InstanceCPUMapingManager(base.ManagerWithFind):
     resource_class = InstanceCPUMapping
 
-    def create(self, instance_uuid, cpu_mappings, wait_until_active=False):
+    def create(self, instance_uuid, cpu_mappings, wait_until_active=False,
+               project_id=None, user_id=None):
         url = '/instance_cpu_mappings'
         data = {
             'instance_uuid': instance_uuid,
             'cpu_mappings': cpu_mappings,
             'wait_until_active': wait_until_active
         }
+        if project_id:
+            data['project_id'] = project_id
+        if user_id:
+            data['user_id'] = user_id
         return self._create(url, data=data)
 
     def delete(self, instance_uuid):
