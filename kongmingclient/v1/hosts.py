@@ -16,18 +16,18 @@
 from kongmingclient.common import base
 
 
-class Instance(base.Resource):
+class Host(base.Resource):
     pass
 
 
-class InstanceManager(base.ManagerWithFind):
-    resource_class = Instance
+class HostManager(base.ManagerWithFind):
+    resource_class = Host
 
-    def get(self, instance_uuid):
-        url = '/instances/%s' % base.getid(instance_uuid)
+    def get(self, host_name):
+        url = '/hosts/%s' % base.getid(host_name)
         return self._get(url)
 
     def list(self):
-        url = '/instances'
+        url = '/hosts'
         return self._list(url, response_key='instances')
 

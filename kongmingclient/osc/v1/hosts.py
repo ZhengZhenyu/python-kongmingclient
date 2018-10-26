@@ -30,22 +30,22 @@ from kongmingclient.common import utils as cli_utils
 LOG = logging.getLogger(__name__)
 
 
-class ShowInstance(command.ShowOne):
-    """Display instance details"""
+class ShowHost(command.ShowOne):
+    """Display host details"""
 
     def get_parser(self, prog_name):
-        parser = super(ShowInstance, self).get_parser(prog_name)
+        parser = super(ShowHost, self).get_parser(prog_name)
         parser.add_argument(
-            'instance_uuid',
-            metavar='<instance_uuid>',
-            help=_("Instance to display (UUID)")
+            'host_name',
+            metavar='<host_name>',
+            help=_("Host to display (Host_name)")
         )
         return parser
 
     def take_action(self, parsed_args):
         kongmingclient = self.app.client_manager.resource_pin
         data = utils.find_resource(
-            kongmingclient.instances, parsed_args.instance_uuid)
+            kongmingclient.hosts, parsed_args.host_name)
 
         info = {}
         info.update(data._info)

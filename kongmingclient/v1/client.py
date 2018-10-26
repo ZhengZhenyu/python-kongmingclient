@@ -14,6 +14,7 @@
 #
 
 from kongmingclient.common import http
+from kongmingclient.v1 import hosts
 from kongmingclient.v1 import instance_cpu_mappings
 from kongmingclient.v1 import instances
 
@@ -29,4 +30,7 @@ class Client(object):
             instance_cpu_mappings.InstanceCPUMapingManager(self.http_client)
 
         self.instances = \
-            instances.InstancegManager(self.http_client)
+            instances.InstanceManager(self.http_client)
+
+        self.hosts = \
+            hosts.HostManager(self.http_client)
