@@ -49,4 +49,8 @@ class ShowHost(command.ShowOne):
 
         info = {}
         info.update(data._info)
+        instances = info.pop('instances')
+        for instance in instances:
+            instance_uuid = instance.pop('uuid')
+            info['instances:' + instance_uuid] = instance
         return zip(*sorted(info.items()))
