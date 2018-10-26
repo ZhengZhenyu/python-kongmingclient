@@ -15,6 +15,7 @@
 
 from kongmingclient.common import http
 from kongmingclient.v1 import instance_cpu_mappings
+from kongmingclient.v1 import instances
 
 
 class Client(object):
@@ -26,3 +27,6 @@ class Client(object):
 
         self.instance_cpu_mappings = \
             instance_cpu_mappings.InstanceCPUMapingManager(self.http_client)
+
+        self.instances = \
+            instances.InstancegManager(self.http_client)
